@@ -16,7 +16,7 @@ STORAGE_BACKEND = "requestbin.storage.memory.MemoryStorage"
 MAX_RAW_SIZE = int(os.environ.get('MAX_RAW_SIZE', 1024*10))
 IGNORE_HEADERS = []
 MAX_REQUESTS = 20
-CLEANUP_INTERVAL = 3600
+CLEANUP_INTERVAL = 604800
 
 REDIS_URL = ""
 REDIS_HOST = "localhost"

@@ -45,12 +45,12 @@ def bin(name):
         return render_template('bin.html',
             bin=bin,
             base_url=request.scheme+'://'+request.host)
-    elif request.query_string == 'results':
-        obj = [r.to_dict() for r in bin.requests]
-        resp = make_response(json.dumps(obj), 200)
-        resp.headers['Content-Type'] = 'application/json'
-        resp.headers['Access-Control-Allow-Origin'] = '*'
-        return resp
+    # elif request.query_string == 'results':
+    #     obj = [r.to_dict() for r in bin.requests]
+    #     resp = make_response(json.dumps(obj), 200)
+    #     resp.headers['Content-Type'] = 'application/json'
+    #     resp.headers['Access-Control-Allow-Origin'] = '*'
+    #     return resp
     else:
         db.create_request(bin, request)
         resp = make_response("ok\n")

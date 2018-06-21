@@ -45,7 +45,7 @@ def bin(name):
         return render_template('bin.html',
             bin=bin,
             base_url=request.scheme+'://'+request.host)
-    if request.query_string == 'results':
+    elif request.query_string == 'results':
         obj = [r.to_dict() for r in bin.requests]
         resp = make_response(json.dumps(obj), 200)
         resp.headers['Content-Type'] = 'application/json'
@@ -54,7 +54,6 @@ def bin(name):
     else:
         db.create_request(bin, request)
         resp = make_response("ok\n")
-        resp.headers['Sponsored-By'] = "https://www.runscope.com"
         return resp
 
 
